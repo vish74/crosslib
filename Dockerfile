@@ -40,8 +40,8 @@ RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /home/grpc/
 RUN cd /home/grpc && \
     git submodule update --init && \
     make && \
-    make install && make clean
+    make install
 
 #install protoc
 RUN cd /home/grpc/third_party/protobuf && \
-    make && make install && make clean
+    make && make install
