@@ -34,14 +34,14 @@ RUN apt-get update && apt-get install -y \
 
 ENV GRPC_RELEASE_TAG v1.1.0
 
-RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /var/local/git/grpc
+RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /home/grpc/
 
 # install grpc
-RUN cd /var/local/git/grpc && \
+RUN cd /home/grpc && \
     git submodule update --init && \
     make && \
     make install && make clean
 
 #install protoc
-RUN cd /var/local/git/grpc/third_party/protobuf && \
+RUN cd /home/grpc/third_party/protobuf && \
     make && make install && make clean
