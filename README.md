@@ -1,2 +1,2 @@
 # crosslib
-gRPC cross compiler docker builds
+gRPC docker build
