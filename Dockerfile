@@ -33,13 +33,6 @@ RUN apt-get update && apt-get install -y \
   apt-get clean --yes
 
 ENV GRPC_RELEASE_TAG v1.1.0
-ENV AS=/usr/bin/as \
-    AR=/usr/bin/ar \
-    CC=/usr/bin/gcc \
-    CPP=/usr/bin/cpp \
-    CXX=/usr/bin/g++ \
-    LDXX=/usr/bin/g++ \
-    LD=/usr/bin/ld
 
 RUN git clone -b ${GRPC_RELEASE_TAG} https://github.com/grpc/grpc /home/grpc/
 
@@ -52,3 +45,11 @@ RUN cd /home/grpc && \
 #install protoc
 RUN cd /home/grpc/third_party/protobuf && \
     make && make install
+
+ENV AS=/usr/bin/as \
+    AR=/usr/bin/ar \
+    CC=/usr/bin/gcc \
+    CPP=/usr/bin/cpp \
+    CXX=/usr/bin/g++ \
+    LDXX=/usr/bin/g++ \
+    LD=/usr/bin/ld
